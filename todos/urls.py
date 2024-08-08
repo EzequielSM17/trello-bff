@@ -6,6 +6,8 @@ from . import views
 router = DefaultRouter()
 
 router.register('todos', views.ToDoViewSet, basename='todos')
+router.register('todo_specific_state', views.ToDoSpecificStateView,
+                basename='todo_specific_state')
 router.register('todo_types', views.ToDoTypesViewSet, basename='todo_types')
 router.register('todo_state', views.ToDoStateViewSet, basename='todo_state')
 

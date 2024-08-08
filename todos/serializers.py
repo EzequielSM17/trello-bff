@@ -12,7 +12,7 @@ class ToDoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ToDo
         fields = ('id', 'title', 'description',
-                  'date', 'deadline', 'people', 'type')
+                  'date', 'deadline', 'people', 'type', 'state')
         read_only_Fields = ('id',)
 
 
@@ -20,7 +20,7 @@ class ToDoTypesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ToDoTypes
-        fields = ('id', 'title', 'priority')
+        fields = ('id', 'name', 'priority')
         read_only_Fields = ('id',)
 
 

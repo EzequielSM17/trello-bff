@@ -16,7 +16,7 @@ class ToDoTypes(models.Model):
         HIGH: "High",
         URGENT: "Urgent",
     }
-    title = models.CharField('Título', max_length=32)
+    name = models.CharField('Título', max_length=32)
     priority = models.CharField('Prioridad', max_length=2,
                                 choices=PRIORITY_TYPES,
                                 default=LOWER,
@@ -27,7 +27,7 @@ class ToDoTypes(models.Model):
         verbose_name_plural = 'Tipos de tareas'
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.name}'
 
 
 class ToDoState(models.Model):
@@ -62,7 +62,7 @@ class ToDo(models.Model):
     date = models.DateField(
         'Día de la creación de la tarea', auto_now=False, auto_now_add=True, null=True, blank=True)
     deadline = models.DateField(
-        'Día de entrega de la tarea', auto_now=False, auto_now_add=True, null=True, blank=True)
+        'Día de entrega de la tarea', auto_now=False, auto_now_add=False, null=False, blank=False)
     type = models.ForeignKey(ToDoTypes, on_delete=models.PROTECT)
     state = models.ForeignKey(ToDoState, on_delete=models.PROTECT)
     people = models.ManyToManyField(User)
